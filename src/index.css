@@ -1,0 +1,166 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --breakpoint-sm: 600px;
+  --breakpoint-md: 800px;
+  --breakpoint-large: 1000px;
+  --breakpoint-desktop: 1200px;
+
+  /* Core colors - Light Mode */
+  --color-background: #ffffff;
+  --color-foreground: #0f172a;
+  --color-border: #e5e7eb;
+  --color-muted: oklch(0.97 0 0);
+  --color-muted-foreground: oklch(0.556 0 0);
+  --color-card: #ffffff;
+  --color-input: #ffffff;
+  --color-ring: #2563eb;
+
+  /* Semantic colors */
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #ffffff;
+  --color-success: #22c55e;
+  --color-success-foreground: #ffffff;
+  --color-warning: #f59e0b;
+  --color-warning-foreground: #ffffff;
+  --color-info: #3b82f6;
+  --color-info-foreground: #ffffff;
+
+  /* Purple accent */
+  --color-accent-50: #faf5ff;
+  --color-accent-100: #f3e8ff;
+  --color-accent-200: #e9d5ff;
+  --color-accent-300: #d8b4fe;
+  --color-accent-400: #c084fc;
+  --color-accent-500: #a855f7;
+  --color-accent-600: #9333ea;
+  --color-accent-700: #7e22ce;
+  --color-accent-800: #6b21a8;
+  --color-accent-900: #581c87;
+  --color-accent-foreground: #ffffff;
+
+  /* Primary colors */
+  --color-primaryColor-50: #e9effd;
+  --color-primaryColor-100: #bbcff9;
+  --color-primaryColor-200: #9bb7f6;
+  --color-primaryColor-300: #6d96f2;
+  --color-primaryColor-400: #5182ef;
+  --color-primaryColor-500: #2563eb;
+  --color-primaryColor-600: #225ad6;
+  --color-primaryColor-700: #1a46a7;
+  --color-primaryColor-800: #143681;
+  --color-primaryColor-900: #102a63;
+
+  --shadow-2xs: 0 1px rgb(0 0 0 / 0.03);
+  --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.03);
+  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.06), 0 1px 2px -1px rgb(0 0 0 / 0.06);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.08),
+    0 2px 4px -2px rgb(0 0 0 / 0.08);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.08),
+    0 4px 6px -4px rgb(0 0 0 / 0.08);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.08),
+    0 8px 10px -6px rgb(0 0 0 / 0.08);
+  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.15);
+  --shadow-3xl: 0 35px 60px -12px rgb(0 0 0 / 0.25);
+  --shadow-4xl: 0 45px 80px -15px rgb(0 0 0 / 0.35);
+
+  --inset-shadow-2xs: inset 0 1px rgb(0 0 0 / 0.03);
+  --inset-shadow-xs: inset 0 1px 1px rgb(0 0 0 / 0.03);
+  --inset-shadow-sm: inset 0 2px 4px rgb(0 0 0 / 0.03);
+  --inset-shadow-md: inset 0 4px 8px rgb(0 0 0 / 0.06);
+  --inset-shadow-lg: inset 0 8px 16px rgb(0 0 0 / 0.08);
+}
+
+.dark {
+  /* Core colors - Dark Mode */
+  --color-background: #0c0f1a;
+  --color-foreground: #f1f5f9;
+  --color-border: #1e293b;
+  --color-muted: #131827;
+  --color-muted-foreground: #94a3b8;
+  --color-card: #131827;
+  --color-input: #1e293b;
+  --color-ring: #3b82f6;
+
+  /* Semantic colors - slightly muted for dark mode */
+  --color-destructive: #f87171;
+  --color-destructive-foreground: #ffffff;
+  --color-success: #4ade80;
+  --color-success-foreground: #ffffff;
+  --color-warning: #fbbf24;
+  --color-warning-foreground: #ffffff;
+  --color-info: #60a5fa;
+  --color-info-foreground: #ffffff;
+
+  /* Primary colors - Dark Mode */
+  --color-primaryColor-50: #0f172a;
+  --color-primaryColor-100: #1e293b;
+  --color-primaryColor-200: #334155;
+  --color-primaryColor-300: #475569;
+  --color-primaryColor-400: #60a5fa;
+  --color-primaryColor-500: #3b82f6;
+  --color-primaryColor-600: #2563eb;
+  --color-primaryColor-700: #1d4ed8;
+  --color-primaryColor-800: #1e40af;
+  --color-primaryColor-900: #1e3a8a;
+
+  /* Accent colors - Dark Mode */
+  --color-accent-50: #1a0a2e;
+  --color-accent-100: #2e1065;
+  --color-accent-200: #3b0764;
+  --color-accent-300: #581c87;
+  --color-accent-400: #a855f7;
+  --color-accent-500: #c084fc;
+  --color-accent-600: #d8b4fe;
+  --color-accent-foreground: #ffffff;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-border/50;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+    font-family: "Poppins", sans-serif;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/30 rounded-xs;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
+  }
+  ::-webkit-scrollbar-thumb:active {
+    @apply bg-muted-foreground/70;
+  }
+}
+
+@layer utilities {
+  .container {
+    @apply mx-auto w-full max-w-7xl;
+  }
+}
